@@ -1,5 +1,6 @@
 import React from 'react';
 import PredictExpenses from '../components/PredictExpenses';
+import "../styles/PredictPage.css";
 
 
 

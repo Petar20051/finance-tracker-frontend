@@ -8,7 +8,7 @@ import {
   getBudgetSummary,
   getBudgetPerformance,
 } from "../api/budget";
-
+import "../styles/BudgetPage.css";
 
 const BudgetPage = () => {
   const [budgets, setBudgets] = useState([]);
@@ -32,14 +32,13 @@ const BudgetPage = () => {
         getBudgetSummary(),
         getBudgetPerformance(),
       ]);
-  
-      
+
       if (budgetsData && budgetsData.data) {
-        setBudgets(budgetsData.data); 
+        setBudgets(budgetsData.data);
       } else {
-        setBudgets([]); 
+        setBudgets([]);
       }
-  
+
       setSummary(summaryData || []);
       setPerformance(performanceData || []);
     } catch (err) {
@@ -49,7 +48,6 @@ const BudgetPage = () => {
       setLoading(false);
     }
   };
-  
 
   const handleFilterBudgets = async () => {
     setLoading(true);
@@ -58,7 +56,7 @@ const BudgetPage = () => {
         const filteredData = await filterBudgets(filterCategory);
         setBudgets(filteredData || []);
       } else {
-        setBudgets(summary); 
+        setBudgets(summary);
       }
     } catch (err) {
       setError("Failed to filter budgets.");
@@ -70,7 +68,7 @@ const BudgetPage = () => {
 
   const handleClearFilter = () => {
     setFilterCategory("");
-    setBudgets(summary); 
+    setBudgets(summary);
   };
 
   const handleAddBudget = async () => {
@@ -121,52 +119,41 @@ const BudgetPage = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="text-center">Budgets</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
+    <div className="budget-page">
+      <h2 className="center-text">Budgets</h2>
+      {error && <div className="error-alert">{error}</div>}
 
-      <div className="form-group mt-3">
+      <div className="budget-form-group">
         <label>Filter Budgets</label>
         <input
           type="text"
-          className="form-control"
           placeholder="Filter by Category"
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value)}
         />
-        <button className="btn btn-primary mt-2" onClick={handleFilterBudgets}>
+        <button className="budget-btn budget-btn-primary margin-top" onClick={handleFilterBudgets}>
           Apply Filter
         </button>
-        <button className="btn btn-secondary mt-2 ml-2" onClick={handleClearFilter}>
+        <button className="budget-btn budget-btn-secondary margin-top margin-left" onClick={handleClearFilter}>
           Clear Filter
         </button>
       </div>
 
-      <h3 className="mt-4">Budget List</h3>
+      <h3 className="margin-top">Budget List</h3>
       {loading ? (
         <div>Loading...</div>
       ) : budgets.length > 0 ? (
-        <ul className="list-group">
+        <ul className="budget-list">
           {budgets.map((budget) => (
-            <li
-              key={budget.id}
-              className="list-group-item d-flex justify-content-between"
-            >
+            <li key={budget.id} className="budget-list-item">
               <div>
-                <strong>{budget.category}</strong>: Limit - {budget.limit}, Spent -{" "}
-                {budget.spent}
+                <strong>{budget.category}</strong>: Limit - {budget.limit}, Spent - {budget.spent}
               </div>
               <div>
-                <button
-                  className="btn btn-danger btn-sm mr-2"
-                  onClick={() => handleDeleteBudget(budget.id)}
-                >
+                <button className="budget-btn budget-btn-danger" onClick={() => handleDeleteBudget(budget.id)}>
                   Delete
                 </button>
-                <button
-                  className="btn btn-primary btn-sm"
-                  onClick={() => handleEditBudget(budget)}
-                >
+                <button className="budget-btn budget-btn-primary" onClick={() => handleEditBudget(budget)}>
                   Edit
                 </button>
               </div>
@@ -177,38 +164,35 @@ const BudgetPage = () => {
         <p>No budgets found.</p>
       )}
 
-      <h3 className="mt-4">{editingBudget ? "Edit Budget" : "Add New Budget"}</h3>
-      <div className="form-group">
+      <h3 className="margin-top">{editingBudget ? "Edit Budget" : "Add New Budget"}</h3>
+      <div className="budget-form-group">
         <label>Category</label>
         <input
           type="text"
-          className="form-control"
           value={newBudget.category}
           onChange={(e) => setNewBudget({ ...newBudget, category: e.target.value })}
         />
         <label>Limit</label>
         <input
           type="number"
-          className="form-control"
           value={newBudget.limit}
           onChange={(e) => setNewBudget({ ...newBudget, limit: Number(e.target.value) })}
         />
         <label>Spent</label>
         <input
           type="number"
-          className="form-control"
           value={newBudget.spent}
           onChange={(e) => setNewBudget({ ...newBudget, spent: Number(e.target.value) })}
         />
         <button
-          className={`btn ${editingBudget ? "btn-primary" : "btn-success"} mt-3`}
+          className={`budget-btn ${editingBudget ? "budget-btn-primary" : "budget-btn-success"} margin-top`}
           onClick={editingBudget ? handleUpdateBudget : handleAddBudget}
         >
           {editingBudget ? "Update Budget" : "Add Budget"}
         </button>
         {editingBudget && (
           <button
-            className="btn btn-secondary mt-3 ml-2"
+            className="budget-btn budget-btn-secondary margin-top margin-left"
             onClick={() => {
               setEditingBudget(null);
               setNewBudget({ category: "", limit: 0, spent: 0 });
@@ -219,19 +203,19 @@ const BudgetPage = () => {
         )}
       </div>
 
-      <h3 className="mt-4">Budget Summary</h3>
-      <ul className="list-group">
+      <h3 className="margin-top">Budget Summary</h3>
+      <ul className="budget-list">
         {summary.map((item, index) => (
-          <li key={index} className="list-group-item">
+          <li key={index} className="budget-list-item">
             {item.category}: Limit - {item.limit}, Spent - {item.spent}
           </li>
         ))}
       </ul>
 
-      <h3 className="mt-4">Budget Performance</h3>
-      <ul className="list-group">
+      <h3 className="margin-top">Budget Performance</h3>
+      <ul className="budget-list">
         {performance.map((item, index) => (
-          <li key={index} className="list-group-item">
+          <li key={index} className="budget-list-item">
             {item.category}: Remaining - {item.remaining}
           </li>
         ))}

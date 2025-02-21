@@ -100,35 +100,26 @@ const GoalsPage = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="text-center">Goals</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
+    <div className="goals-page">
+      <h2 className="goals-title">Goals</h2>
+      {error && <div className="error-alert">{error}</div>}
 
-      <h3 className="mt-4">Goal List</h3>
+      <h3 className="section-title">Goal List</h3>
       {loading ? (
-        <div>Loading...</div>
+        <div className="loading">Loading...</div>
       ) : goals.length > 0 ? (
-        <ul className="list-group">
+        <ul className="goal-list">
           {goals.map((goal) => (
-            <li
-              key={goal.id}
-              className="list-group-item d-flex justify-content-between"
-            >
-              <div>
-                <strong>{goal.title}</strong>: {goal.category}, Target -{" "}
-                {goal.targetAmount}, Deadline - {new Date(goal.deadline).toDateString()}
+            <li key={goal.id} className="goal-item">
+              <div className="goal-info">
+                <strong>{goal.title}</strong>: {goal.category}, Target - {goal.targetAmount}, Deadline -{" "}
+                {new Date(goal.deadline).toDateString()}
               </div>
-              <div>
-                <button
-                  className="btn btn-danger btn-sm mr-2"
-                  onClick={() => handleDeleteGoal(goal.id)}
-                >
+              <div className="goal-actions">
+                <button className="btn-danger" onClick={() => handleDeleteGoal(goal.id)}>
                   Delete
                 </button>
-                <button
-                  className="btn btn-primary btn-sm"
-                  onClick={() => handleEditGoal(goal)}
-                >
+                <button className="btn-primary" onClick={() => handleEditGoal(goal)}>
                   Edit
                 </button>
               </div>
@@ -136,85 +127,78 @@ const GoalsPage = () => {
           ))}
         </ul>
       ) : (
-        <p>No goals found.</p>
+        <p className="no-goals">No goals found.</p>
       )}
 
-      <h3 className="mt-4">{editingGoal ? "Edit Goal" : "Add New Goal"}</h3>
-      <div className="form-group">
-        <label>Title</label>
+      <h3 className="section-title">{editingGoal ? "Edit Goal" : "Add New Goal"}</h3>
+      <div className="goal-form">
+        <label className="form-label">Title</label>
         <input
           type="text"
-          className="form-control"
+          className="form-input"
           value={newGoal.title}
           onChange={(e) => setNewGoal({ ...newGoal, title: e.target.value })}
         />
-        <label>Category</label>
+        <label className="form-label">Category</label>
         <input
           type="text"
-          className="form-control"
+          className="form-input"
           value={newGoal.category}
           onChange={(e) => setNewGoal({ ...newGoal, category: e.target.value })}
         />
-        <label>Target Amount</label>
+        <label className="form-label">Target Amount</label>
         <input
           type="number"
-          className="form-control"
+          className="form-input"
           value={newGoal.targetAmount}
-          onChange={(e) =>
-            setNewGoal({ ...newGoal, targetAmount: Number(e.target.value) })
-          }
+          onChange={(e) => setNewGoal({ ...newGoal, targetAmount: Number(e.target.value) })}
         />
-        <label>Deadline</label>
-        <label>Deadline</label>
-<input
-  type="date"
-  className="form-control"
-  value={
-    newGoal.deadline
-      ? new Date(newGoal.deadline).toISOString().split("T")[0] 
-      : ""
-  }
-  onChange={(e) => setNewGoal({ ...newGoal, deadline: e.target.value })}
-/>
+        <label className="form-label">Deadline</label>
+        <input
+          type="date"
+          className="form-input"
+          value={newGoal.deadline ? new Date(newGoal.deadline).toISOString().split("T")[0] : ""}
+          onChange={(e) => setNewGoal({ ...newGoal, deadline: e.target.value })}
+        />
 
         <button
-          className={`btn ${editingGoal ? "btn-primary" : "btn-success"} mt-3`}
+          className={`form-btn ${editingGoal ? "btn-primary" : "btn-success"}`}
           onClick={editingGoal ? handleUpdateGoal : handleCreateGoal}
         >
           {editingGoal ? "Update Goal" : "Add Goal"}
         </button>
         {editingGoal && (
           <button
-            className="btn btn-secondary mt-3 ml-2"
-            onClick={() => setEditingGoal(null)}
+            className="form-btn btn-secondary"
+            onClick={() => {
+              setEditingGoal(null);
+              setNewGoal({ title: "", category: "", targetAmount: 0, deadline: "" });
+            }}
           >
             Cancel
           </button>
         )}
       </div>
 
-      <h3 className="mt-4">Goal Suggestions</h3>
-<button className="btn btn-info mb-3" onClick={fetchGoalSuggestions}>
-  Fetch Suggestions
-</button>
-{Array.isArray(suggestedGoals) && suggestedGoals.length > 0 ? (
-  <ul className="list-group">
-    {suggestedGoals.map((suggestion, index) => (
-      <li key={index} className="list-group-item">
-        Category: {suggestion.title || "Untitled Goal"}, Target:{" "}
-        {suggestion.targetAmount !== undefined
-          ? suggestion.targetAmount
-          : "N/A"}, Deadline:{" "}
-        {suggestion.deadline
-          ? new Date(suggestion.deadline).toDateString()
-          : "No deadline specified"}
-      </li>
-    ))}
-  </ul>
-) : (
-  <p>No suggestions available. Click "Fetch Suggestions" to get started.</p>
-)}
-
+      <h3 className="section-title">Goal Suggestions</h3>
+      <button className="suggest-btn" onClick={fetchGoalSuggestions}>
+        Fetch Suggestions
+      </button>
+      {Array.isArray(suggestedGoals) && suggestedGoals.length > 0 ? (
+        <ul className="goal-suggestions">
+          {suggestedGoals.map((suggestion, index) => (
+            <li key={index} className="suggestion-item">
+              Category: {suggestion.title || "Untitled Goal"}, Target:{" "}
+              {suggestion.targetAmount !== undefined ? suggestion.targetAmount : "N/A"}, Deadline:{" "}
+              {suggestion.deadline ? new Date(suggestion.deadline).toDateString() : "No deadline specified"}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="no-suggestions">
+          No suggestions available. Click "Fetch Suggestions" to get started.
+        </p>
+      )}
     </div>
   );
 };

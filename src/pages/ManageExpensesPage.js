@@ -7,6 +7,7 @@ import {
 } from "../api/expense";
 import ExpenseList from "../components/ExpenseList";
 import AddExpenseForm from "../components/AddExpenseForm";
+import "../styles/ManageExpensesPage.css";
 
 
 const ManageExpensesPage = () => {
@@ -89,17 +90,17 @@ const ManageExpensesPage = () => {
   }
 
   return (
-    <div>
+    <div className="manage-expenses-page">
       <h1>Manage Expenses</h1>
       <AddExpenseForm
-        onSubmit={handleAddOrUpdateExpense} 
-        editingExpense={editingExpense} 
-        cancelEditing={cancelEditing} 
+        onSubmit={handleAddOrUpdateExpense}
+        editingExpense={editingExpense}
+        cancelEditing={cancelEditing}
       />
       <ExpenseList
-        expenses={expenses} 
-        onDelete={handleDeleteExpense} 
-        onUpdate={startEditing} 
+        expenses={expenses}
+        onDelete={handleDeleteExpense}
+        onUpdate={startEditing}
       />
     </div>
   );

@@ -3,6 +3,7 @@ import CategorySummary from "../components/CategorySummary";
 import MonthlyTrends from "../components/MonthlyTrends";
 import ExpenseTrendsChart from "../components/ExpenseTrendsChart";
 import { getMonthlyTrends } from "../api/expense";
+import "../styles/ReportPage.css";
 
 
 const ReportsPage = () => {
@@ -25,29 +26,21 @@ const ReportsPage = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h1>Reports</h1>
-
-      
-      {error && <p className="error">{error}</p>}
-
-      
-      <div className="category-summary">
+    <div className="reports-page">
+      <h1 className="reports-title">Reports</h1>
+      {error && <p className="error-message">{error}</p>}
+      <div className="category-summary-section">
         <CategorySummary />
       </div>
-
-     
-      <div className="monthly-trends">
+      <div className="monthly-trends-section">
         <MonthlyTrends />
       </div>
-
-      
-      <div className="expense-trends-chart">
+      <div className="expense-trends-chart-section">
         <h2>Monthly Expense Trends</h2>
         {chartData.length > 0 ? (
           <ExpenseTrendsChart data={chartData} />
         ) : (
-          <p>No data available for the chart.</p>
+          <p className="no-data">No data available for the chart.</p>
         )}
       </div>
     </div>

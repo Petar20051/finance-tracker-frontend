@@ -1,9 +1,9 @@
 import React from 'react';
 import CurrencyConverter from '../components/CurrencyConverter';
-
+import "../styles/CurrenctConverterPage.css";
 
 const CurrencyConverterPage = () => (
-  <div style={{ padding: '20px', textAlign: 'center' }}>
+  <div className="currency-converter-page">
     <CurrencyConverter />
   </div>
 );
