@@ -6,6 +6,7 @@ import {
   deleteGoal,
   getGoalSuggestions,
 } from "../api/goals";
+import "../styles/GoalsPage.css";
 
 
 const GoalsPage = () => {
