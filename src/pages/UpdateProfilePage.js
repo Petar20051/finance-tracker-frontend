@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchProfileDetails, updateProfile } from "../api/auth";
-import "../styles//UpdateProfilePage.css"; 
+import "../styles/UpdateProfile.css";
+
 
 const ProfileDetails = () => {
     const [profile, setProfile] = useState({

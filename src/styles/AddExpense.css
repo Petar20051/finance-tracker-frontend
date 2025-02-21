@@ -1,0 +1,70 @@
+form {
+    max-width: 500px;
+    margin: 3rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.6s ease-out forwards;
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  
+  @keyframes slideIn {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  form input:focus,
+  form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(78, 137, 174, 0.3);
+    outline: none;
+  }
+  
+  form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  form button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-right: 1rem;
+  }
+  
+  form button:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+  }
+  
+  form button:active {
+    transform: translateY(0);
+  }
+  
+  form button:last-of-type {
+    background: var(--secondary-color);
+  }
+  
+  form button:last-of-type:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+  }
+  

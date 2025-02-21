@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { predictCategoryAndExpense } from "../api/expense";
+import "../styles/Predict.css";
 
 const PredictCategoryAndExpense = () => {
   const [description, setDescription] = useState("");

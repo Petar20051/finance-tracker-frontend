@@ -3,6 +3,7 @@ import { login } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 import "../styles/Auth.css";
 
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

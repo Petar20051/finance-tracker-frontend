@@ -1,6 +1,6 @@
 import React from "react";
 import SyncTransactions from "../components/SyncTransaction"; 
-import "../styles/Dashboard.css"
+
 
 
 const Dashboard = () => {

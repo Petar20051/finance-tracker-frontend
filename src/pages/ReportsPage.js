@@ -3,7 +3,7 @@ import CategorySummary from "../components/CategorySummary";
 import MonthlyTrends from "../components/MonthlyTrends";
 import ExpenseTrendsChart from "../components/ExpenseTrendsChart";
 import { getMonthlyTrends } from "../api/expense";
-import "../styles/ReportsPage.css";
+
 
 const ReportsPage = () => {
   const [chartData, setChartData] = useState([]);

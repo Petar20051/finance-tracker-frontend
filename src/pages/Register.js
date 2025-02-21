@@ -3,6 +3,7 @@ import { register } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 import "../styles/Auth.css";
 
+
 const Register = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");

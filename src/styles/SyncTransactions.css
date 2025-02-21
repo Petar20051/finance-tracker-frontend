@@ -1,0 +1,88 @@
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .sync-form-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .sync-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .sync-form label {
+    font-size: 1rem;
+    color: var(--secondary-color);
+  }
+  
+  .sync-form input {
+    padding: 0.75rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .sync-form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(78, 137, 174, 0.3);
+    outline: none;
+  }
+  
+  .sync-form button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .sync-form button:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+  }
+  
+  .sync-link-button {
+    display: block;
+    max-width: 400px;
+    margin: 1rem auto;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--secondary-color);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .sync-link-button:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -1,6 +1,6 @@
 import React from 'react';
 import PredictExpenses from '../components/PredictExpenses';
-import '../styles/CommonStyles.css';
+
 
 
 const AIPredictionsPage = () => (

@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/ExpenseList.css"; 
+import "../styles/ExpenseList.css";
+
 
 const ExpenseList = ({ expenses, onDelete, onUpdate }) => {
   if (!Array.isArray(expenses) || expenses.length === 0) {

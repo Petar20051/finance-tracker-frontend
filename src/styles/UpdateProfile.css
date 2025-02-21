@@ -1,0 +1,95 @@
+.update-profile-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease forwards;
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .update-profile-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+  }
+  
+  .update-profile-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .update-profile-container form > div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .update-profile-container label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+  
+  .update-profile-container input {
+    padding: 0.75rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .update-profile-container input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(78, 137, 174, 0.4);
+    outline: none;
+  }
+  
+  .update-profile-container button {
+    align-self: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .update-profile-container button:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+  }
+  
+  .error {
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: shake 0.3s ease;
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .success {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s ease;
+  }
+  

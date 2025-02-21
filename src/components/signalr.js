@@ -1,4 +1,5 @@
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
+import "../styles/SignalR.css";
 
 let connection;
 

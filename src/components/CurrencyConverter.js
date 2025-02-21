@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { convertCurrency } from "../api/expense";
-import "../styles/CurrencyConverter.css"; // Add this CSS file for styling
+import "../styles/CurrencyConverter.css";
+
 
 const CurrencyConverter = () => {
   const [conversion, setConversion] = useState({

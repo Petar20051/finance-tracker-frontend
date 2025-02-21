@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getCategorySummary } from "../api/expense";
+import "../styles/CategorySummary.css";
 
 const CategorySummary = () => {
   const [summary, setSummary] = useState([]);

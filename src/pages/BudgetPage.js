@@ -8,8 +8,7 @@ import {
   getBudgetSummary,
   getBudgetPerformance,
 } from "../api/budget";
-import "../styles/BudgetPage.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const BudgetPage = () => {
   const [budgets, setBudgets] = useState([]);

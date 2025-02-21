@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import "../styles/Chart.css";
 
 const ExpenseTrendsChart = ({ data }) => {
   if (!data || data.length === 0) {

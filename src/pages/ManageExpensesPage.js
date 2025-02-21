@@ -7,7 +7,7 @@ import {
 } from "../api/expense";
 import ExpenseList from "../components/ExpenseList";
 import AddExpenseForm from "../components/AddExpenseForm";
-import "../styles/CommonStyles.css";
+
 
 const ManageExpensesPage = () => {
   const [expenses, setExpenses] = useState([]); 

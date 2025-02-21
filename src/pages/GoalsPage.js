@@ -6,8 +6,7 @@ import {
   deleteGoal,
   getGoalSuggestions,
 } from "../api/goals";
-import "../styles/GoalsPage.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const GoalsPage = () => {
   const [goals, setGoals] = useState([]);

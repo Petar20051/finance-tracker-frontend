@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getMonthlyTrends } from "../api/expense";
+import "../styles/MonthlyTrends.css";
 
 const MonthlyTrends = () => {
   const [trends, setTrends] = useState([]);
