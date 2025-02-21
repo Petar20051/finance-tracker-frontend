@@ -1,0 +1,138 @@
+.currency-converter {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: bold;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+.converter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.convert-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.convert-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #28a745;
+  font-weight: bold;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.error {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #dc3545;
+  font-weight: bold;
+  animation: shake 0.4s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-5px);
+  }
+  50% {
+      transform: translateX(5px);
+  }
+  75% {
+      transform: translateX(-5px);
+  }
+}

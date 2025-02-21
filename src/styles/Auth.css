@@ -1,0 +1,105 @@
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  border: 1px solid #ccc;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+  font-size: 1.8em;
+  font-weight: bold;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.auth-container input {
+  margin: 12px 0;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.auth-container button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.auth-container button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  animation: shake 0.4s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-5px);
+  }
+  50% {
+      transform: translateX(5px);
+  }
+  75% {
+      transform: translateX(-5px);
+  }
+}

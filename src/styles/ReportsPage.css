@@ -1,0 +1,231 @@
+
+body {
+  font-family: 'Poppins', Arial, sans-serif; 
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50; 
+  animation: fadeIn 1s ease-in-out; 
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin: 20px 0;
+  font-size: 2rem;
+  font-weight: bold;
+  animation: slideDown 1s ease-in-out; 
+}
+
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1.2s ease-in-out; 
+}
+
+
+h2 {
+  font-size: 1.8rem;
+  color: #34495e;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  animation: slideLeft 1s ease-in-out; 
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  padding: 12px;
+  margin-bottom: 10px;
+  background: linear-gradient(145deg, #ecf0f1, #dfe6e9);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.8s ease-in-out; 
+}
+
+ul li:hover {
+  background: linear-gradient(145deg, #dfe6e9, #ecf0f1);
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ul li strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: bounceIn 1s ease-in-out; 
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin: 20px 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.error {
+  color: #e74c3c;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  animation: shake 0.5s ease-in-out; 
+}
+
+
+.category-summary,
+.monthly-trends {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+
+.expense-trends-chart {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.expense-trends-chart h2 {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 1.5rem;
+  animation: slideLeft 1s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+      transform: scale(0.5);
+      opacity: 0;
+  }
+  50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-5px);
+  }
+  50% {
+      transform: translateX(5px);
+  }
+  75% {
+      transform: translateX(-5px);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+      padding: 20px;
+  }
+
+  h1, h2 {
+      font-size: 1.5rem;
+  }
+
+  button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+  }
+
+  ul li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  }
+}
