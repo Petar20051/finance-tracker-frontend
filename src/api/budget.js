@@ -38,7 +38,7 @@ const apiRequest = async (method, url, data = {}, params = {}) => {
 };
 
 
-export const getBudgets = () => axios.get(BASE_URL);
+export const getBudgets = () =>  apiRequest("get", BASE_URL);
 
 export const addBudget = (budget) => apiRequest("post", BASE_URL, budget);
 

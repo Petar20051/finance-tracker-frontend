@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getCategorySummary } from "../api/expense";
 import "../styles/CategorySummary.css";
 
@@ -8,11 +8,14 @@ const CategorySummary = () => {
 
   useEffect(() => {
     const fetchSummary = async () => {
+      // Set the start date to the first day of the current month
       const startDate = new Date();
       startDate.setDate(1);
+      // End date is now
       const endDate = new Date();
 
       try {
+        // Call API using ISO strings for dates
         const data = await getCategorySummary(
           startDate.toISOString(),
           endDate.toISOString()
@@ -25,14 +28,14 @@ const CategorySummary = () => {
     };
 
     fetchSummary();
-  }, []); 
+  }, []);
 
   if (error) {
     return <p className="error">{error}</p>;
   }
 
   return (
-    <div>
+    <div className="category-summary">
       <h2>Category Summary</h2>
       {summary.length > 0 ? (
         <ul>

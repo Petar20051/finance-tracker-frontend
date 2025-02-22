@@ -36,7 +36,6 @@ const ReportsPage = () => {
         <MonthlyTrends />
       </div>
       <div className="expense-trends-chart-section">
-        <h2>Monthly Expense Trends</h2>
         {chartData.length > 0 ? (
           <ExpenseTrendsChart data={chartData} />
         ) : (

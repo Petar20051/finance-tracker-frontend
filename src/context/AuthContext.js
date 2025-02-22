@@ -10,10 +10,11 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setUser({ token }); 
+      setUser({ token });
     }
   }, []);
 
+  // This function updates state and navigates
   const login = (token) => {
     localStorage.setItem("token", token);
     setUser({ token });

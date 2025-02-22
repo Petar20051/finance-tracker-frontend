@@ -56,8 +56,13 @@ const AddExpenseForm = ({ onSubmit, editingExpense, cancelEditing }) => {
       return;
     }
   
-    console.log("Submitting expense form:", formState);
-    onSubmit(formState);
+    
+    const { id, ...payload } = formState;
+    payload.amount = parseFloat(payload.amount);
+  
+    console.log("Submitting expense form:", payload);
+    onSubmit(payload);
+  
     setFormState({
       category: "",
       amount: "",
@@ -65,6 +70,7 @@ const AddExpenseForm = ({ onSubmit, editingExpense, cancelEditing }) => {
       date: "",
     });
   };
+  
   
 
   return (

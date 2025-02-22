@@ -1,3 +1,4 @@
+// auth.js
 import axios from "axios";
 
 const API_BASE_URL = "https://localhost:7109/api";
@@ -17,39 +18,37 @@ apiClient.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-
 export const login = async (email, password) => {
   try {
-    const response = await apiClient.post("/Auth/login", { email, password });
-
-    
+    const payload = { Email: email, Password: password };
+    const response = await apiClient.post("/Auth/login", payload);
     console.log("Login response:", response);
 
-    const { token, userId } = response.data;
-
     
+    const { token, userId } = response.data;
     localStorage.setItem("token", token);
     localStorage.setItem("userId", userId);
 
     return { token, userId };
   } catch (error) {
-    console.error("Login failed:", error.response?.data?.message || error.message);
-    throw new Error(error.response?.data?.message || "Login failed");
+    console.error("Login failed:", error.response?.data?.Message || error.message);
+    throw new Error(error.response?.data?.Message || "Login failed");
   }
 };
-
 
 export const register = async (email, password, fullName) => {
   try {
-    const response = await apiClient.post("/Auth/register", { email, password, fullName });
+    // Use keys matching your RegisterModel (Email, Password, FullName)
+    const payload = { Email: email, Password: password, FullName: fullName };
+    const response = await apiClient.post("/Auth/register", payload);
     return response.data;
   } catch (error) {
-    console.error("Registration failed:", error.response?.data?.message || error.message);
-    throw new Error(error.response?.data?.message || "Registration failed");
+    console.error("Registration failed:", error.response?.data?.Errors || error.message);
+    throw new Error(error.response?.data?.Errors || "Registration failed");
   }
 };
 
-
+// (The remaining functions – fetchProfileDetails and updateProfile – remain unchanged)
 export const fetchProfileDetails = async () => {
   try {
     const response = await apiClient.get("/Auth/details");
@@ -60,12 +59,10 @@ export const fetchProfileDetails = async () => {
   }
 };
 
-
 export const updateProfile = async (profileData) => {
   try {
     const response = await apiClient.put("/Auth/update", profileData);
     return response.data;
-    
   } catch (error) {
     console.error("Error updating profile:", error.response?.data || error.message);
     throw new Error(error.response?.data?.message || "Failed to update profile");
