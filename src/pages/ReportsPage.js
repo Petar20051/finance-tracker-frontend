@@ -33,18 +33,11 @@ const ReportsPage = () => {
       {error && <p className="error-message">{error}</p>}
       
       <section className="category-summary-section">
-        <h2>Category Summary</h2>
-        <p className="section-description">
-          A quick look at your spending across different categories.
-        </p>
+       
         <CategorySummary />
       </section>
       
       <section className="monthly-trends-section">
-        <h2>Monthly Trends</h2>
-        <p className="section-description">
-          Review your spending patterns month-by-month.
-        </p>
         <MonthlyTrends />
       </section>
       

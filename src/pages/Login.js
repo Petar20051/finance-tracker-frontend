@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { login as loginApi } from "../api/auth";
 import { AuthContext } from "../context/AuthContext";
 import "../styles/Auth.css";
@@ -7,7 +8,15 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { login } = useContext(AuthContext);
+  const { user, login } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+ 
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,7 +26,6 @@ const Login = () => {
         setError("Login failed: No token received.");
         return;
       }
-      
       login(token);
       localStorage.setItem("userId", userId);
       console.log("Token saved to localStorage:", token);

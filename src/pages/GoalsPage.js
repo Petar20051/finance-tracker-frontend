@@ -29,6 +29,7 @@ const GoalsPage = () => {
     setLoading(true);
     try {
       const data = await getGoals();
+      console.log("Fetched Goals Data:", data); 
       setGoals(data || []);
     } catch (err) {
       setError("Failed to fetch goals. Please refresh the page or try again later.");
@@ -41,6 +42,7 @@ const GoalsPage = () => {
   const fetchGoalSuggestions = async () => {
     try {
       const suggestions = await getGoalSuggestions();
+      console.log("Fetched Goal Suggestions:", suggestions); 
       setSuggestedGoals(suggestions || []);
     } catch (err) {
       setError("Failed to fetch goal suggestions.");
@@ -87,12 +89,13 @@ const GoalsPage = () => {
   };
 
   const handleEditGoal = (goal) => {
+    console.log("Editing goal:", goal); 
     setEditingGoal(goal);
     setNewGoal({
-      title: goal.title,
-      category: goal.category,
-      targetAmount: goal.targetAmount,
-      deadline: goal.deadline,
+      title: goal.Title || goal.title,
+      category: goal.Category || goal.category,
+      targetAmount: goal.TargetAmount || goal.targetAmount,
+      deadline: goal.Deadline || goal.deadline,
     });
   };
 
@@ -100,7 +103,7 @@ const GoalsPage = () => {
     <div className="goals-page">
       <h2 className="goals-title">Your Goals</h2>
       <p className="page-description">
-        Manage your financial goals here. You can add new goals, update existing ones, and get suggestions for setting effective targets.
+        Manage your financial goals here. You can add new goals, update existing ones, and see your progress based on your expenses.
       </p>
       {error && <div className="error-alert">{error}</div>}
 
@@ -108,7 +111,7 @@ const GoalsPage = () => {
       <section className="goals-section">
         <h3 className="section-title">Goal List</h3>
         <p className="section-description">
-          Review your current goals below. You can edit or delete any goal as needed.
+          Review your current goals below. Your progress is calculated based on your expenses.
         </p>
         {loading ? (
           <div className="loading">Loading goals...</div>
@@ -117,9 +120,15 @@ const GoalsPage = () => {
             {goals.map((goal) => (
               <li key={goal.id} className="goal-item">
                 <div className="goal-info">
-                  <strong>{goal.title}</strong>: {goal.category}, Target - {goal.targetAmount}, Deadline -{" "}
-                  {new Date(goal.deadline).toDateString()}
+                  <strong>{goal.Title || goal.title}</strong>: {goal.Category || goal.category}, Target - {goal.TargetAmount || goal.targetAmount}, Deadline -{" "}
+                  {new Date(goal.Deadline || goal.deadline).toDateString()}
                 </div>
+                <div className="goal-progress">
+    Progress: {goal.progress !== undefined ? parseFloat(goal.progress).toFixed(2) : 0}
+    {goal.targetAmount > 0 && (
+      <>({((parseFloat(goal.progress) / goal.targetAmount) * 100).toFixed(1)}%)</>
+    )}
+  </div>
                 <div className="goal-actions">
                   <button className="btn-danger" onClick={() => handleDeleteGoal(goal.id)}>
                     Delete
@@ -136,6 +145,7 @@ const GoalsPage = () => {
         )}
       </section>
 
+      {/* Add / Edit Goal Section */}
       <section className="goal-form-section">
         <h3 className="section-title">
           {editingGoal ? "Edit Your Goal" : "Add a New Goal"}
@@ -194,7 +204,7 @@ const GoalsPage = () => {
         </div>
       </section>
 
-     
+      {/* Goal Suggestions Section */}
       <section className="goal-suggestions-section">
         <h3 className="section-title">Goal Suggestions</h3>
         <p className="section-description">

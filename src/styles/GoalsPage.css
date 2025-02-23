@@ -1,3 +1,4 @@
+/* GoalsPage.css */
 
 .goals-page {
   min-height: 100vh;
@@ -12,7 +13,6 @@
   color: var(--text-color);
 }
 
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -23,7 +23,6 @@
     transform: scale(1);
   }
 }
-
 
 .goals-title {
   font-size: 3rem;
@@ -39,7 +38,6 @@
   margin-bottom: 2rem;
 }
 
-
 .error-alert {
   background: rgba(237, 102, 99, 0.2);
   color: var(--accent-color);
@@ -49,7 +47,6 @@
   text-align: center;
   font-size: 1.1rem;
 }
-
 
 .goals-section,
 .goal-form-section,
@@ -64,7 +61,6 @@
   animation: slideInUp 0.8s ease forwards;
 }
 
-
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -75,7 +71,6 @@
     transform: translateY(0);
   }
 }
-
 
 .section-title {
   font-size: 2rem;
@@ -90,7 +85,7 @@
   margin-bottom: 1.5rem;
 }
 
-
+/* Goal List Styles */
 .goal-list {
   list-style: none;
   padding: 0;
@@ -104,8 +99,7 @@
   border-left: 5px solid var(--primary-color);
   border-radius: 8px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, background 0.3s ease;
 }
@@ -115,6 +109,22 @@
   transform: translateX(5px);
 }
 
+.goal-info {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+/* New styles for goal progress */
+.goal-progress {
+  font-size: 1rem;
+  color: var(--primary-color);
+  text-align: right;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* Buttons */
 .goal-actions button {
   margin-left: 0.5rem;
   padding: 0.5rem 1rem;
@@ -134,7 +144,7 @@
   color: #fff;
 }
 
-
+/* Goal Form Styles */
 .goal-form {
   display: flex;
   flex-direction: column;
@@ -186,7 +196,7 @@
   color: #fff;
 }
 
-
+/* Goal Suggestions Styles */
 .goal-suggestions {
   list-style: none;
   padding: 0;
@@ -211,7 +221,6 @@
   font-size: 1.1rem;
   color: var(--text-color);
 }
-
 
 @media (max-width: 768px) {
   .goals-page {
