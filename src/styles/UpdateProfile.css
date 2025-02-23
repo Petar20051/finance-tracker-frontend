@@ -1,6 +1,4 @@
-/* UpdateProfile.css */
 
-/* Main container: a centered card with smooth entrance animation */
 .update-profile-container {
   width: 100%;
   max-width: 500px;
@@ -13,7 +11,7 @@
   color: var(--text-color);
 }
 
-/* Fade In Up Animation */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -25,7 +23,7 @@
   }
 }
 
-/* Heading styles */
+
 .update-profile-container h2 {
   font-size: 2.5rem;
   color: var(--primary-color);
@@ -33,7 +31,7 @@
   margin-bottom: 1rem;
 }
 
-/* Profile description */
+
 .profile-description {
   font-size: 1rem;
   text-align: center;
@@ -41,12 +39,12 @@
   margin-bottom: 2rem;
 }
 
-/* Form group container */
+
 .form-group {
   margin-bottom: 1.5rem;
 }
 
-/* Label styling */
+
 .form-group label {
   display: block;
   font-size: 1rem;
@@ -54,7 +52,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* Input styling */
+
 .form-group input {
   width: 100%;
   padding: 0.75rem;
@@ -63,14 +61,14 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Input focus state */
+
 .form-group input:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 10px rgba(78, 137, 174, 0.3);
   outline: none;
 }
 
-/* Update button styling */
+
 .update-btn {
   width: 100%;
   padding: 0.75rem;
@@ -89,7 +87,7 @@
   transform: translateY(-3px);
 }
 
-/* Error and success messages */
+
 .error {
   color: var(--accent-color);
   text-align: center;
@@ -104,7 +102,7 @@
   font-size: 1rem;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 480px) {
   .update-profile-container {
     padding: 1.5rem;

@@ -104,7 +104,7 @@ const GoalsPage = () => {
       </p>
       {error && <div className="error-alert">{error}</div>}
 
-      {/* Goal List Section */}
+     
       <section className="goals-section">
         <h3 className="section-title">Goal List</h3>
         <p className="section-description">
@@ -136,7 +136,6 @@ const GoalsPage = () => {
         )}
       </section>
 
-      {/* Add / Edit Goal Section */}
       <section className="goal-form-section">
         <h3 className="section-title">
           {editingGoal ? "Edit Your Goal" : "Add a New Goal"}
@@ -195,7 +194,7 @@ const GoalsPage = () => {
         </div>
       </section>
 
-      {/* Goal Suggestions Section */}
+     
       <section className="goal-suggestions-section">
         <h3 className="section-title">Goal Suggestions</h3>
         <p className="section-description">

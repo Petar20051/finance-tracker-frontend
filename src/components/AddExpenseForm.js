@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/AddExpense.css";
 
-// Utility to format date strings for the input
+
 const formatDate = (date) => {
   if (!date) return ""; 
   const d = new Date(date);
@@ -58,7 +58,7 @@ const AddExpenseForm = ({ onSubmit, editingExpense, cancelEditing }) => {
     payload.amount = parseFloat(payload.amount);
     
     onSubmit(payload);
-    // Clear the form after submission
+   
     setFormState({
       category: "",
       amount: "",

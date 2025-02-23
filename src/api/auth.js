@@ -1,4 +1,4 @@
-// auth.js
+
 import axios from "axios";
 
 const API_BASE_URL = "https://localhost:7109/api";
@@ -38,7 +38,7 @@ export const login = async (email, password) => {
 
 export const register = async (email, password, fullName) => {
   try {
-    // Use keys matching your RegisterModel (Email, Password, FullName)
+    
     const payload = { Email: email, Password: password, FullName: fullName };
     const response = await apiClient.post("/Auth/register", payload);
     return response.data;
@@ -48,7 +48,7 @@ export const register = async (email, password, fullName) => {
   }
 };
 
-// (The remaining functions – fetchProfileDetails and updateProfile – remain unchanged)
+
 export const fetchProfileDetails = async () => {
   try {
     const response = await apiClient.get("/Auth/details");

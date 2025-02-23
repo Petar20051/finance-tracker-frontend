@@ -8,7 +8,7 @@ const SyncTransactions = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Initiates bank account linking through Salt Edge Connect.
+  
   const initiateSaltEdgeConnect = async () => {
     try {
       setLoading(true);
@@ -35,7 +35,7 @@ const SyncTransactions = () => {
     }
   };
 
-  // Syncs transactions using the provided user token.
+  
   const syncTransactions = async (userToken) => {
     try {
       if (!userToken) {

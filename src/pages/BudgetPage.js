@@ -56,7 +56,7 @@ const BudgetPage = () => {
         const filteredData = await filterBudgets(filterCategory);
         setBudgets(filteredData || []);
       } else {
-        // If no filter, reload all data
+      
         fetchAllData();
       }
     } catch (err) {

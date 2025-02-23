@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // This function updates state and navigates
+  
   const login = (token) => {
     localStorage.setItem("token", token);
     setUser({ token });

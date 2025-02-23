@@ -1,6 +1,6 @@
-/* AddExpense.css */
 
-/* Form container styling with a card look */
+
+
 .expense-form {
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Input and textarea styles */
+
 .expense-form input,
 .expense-form textarea {
   width: 100%;
@@ -38,7 +38,7 @@
   outline: none;
 }
 
-/* Button styles */
+
 .expense-form button {
   padding: 0.75rem 1.5rem;
   background: var(--primary-color);

@@ -35,12 +35,12 @@ const ManageExpensesPage = () => {
   const handleAddOrUpdateExpense = async (expense) => {
     try {
       if (editingExpense && editingExpense.id) {
-        // Updating an existing expense
+       
         const expenseWithNumericId = { ...expense, id: editingExpense.id };
         await updateExpense(editingExpense.id, expenseWithNumericId);
         setEditingExpense(null); 
       } else {
-        // Adding a new expense
+       
         await addExpense(expense);
       }
       fetchExpenses(); 

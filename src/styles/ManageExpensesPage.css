@@ -1,6 +1,6 @@
-/* ManageExpensesPage.css */
 
-/* Main container with full-screen background and gradient overlay */
+
+
 .manage-expenses-page {
   min-height: 100vh;
   padding: 2rem;
@@ -13,7 +13,7 @@
   color: var(--text-color);
 }
 
-/* Fade in animation */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -25,7 +25,7 @@
   }
 }
 
-/* Headings and page description */
+
 .manage-expenses-page h1 {
   font-size: 3rem;
   color: var(--primary-color);
@@ -40,7 +40,7 @@
   margin-bottom: 2rem;
 }
 
-/* Section containers styled as cards */
+
 .expense-form-section,
 .expense-list-section {
   width: 100%;
@@ -64,7 +64,7 @@
   }
 }
 
-/* Error alert */
+
 .error-alert {
   background: rgba(237,102,99,0.2);
   color: var(--accent-color);

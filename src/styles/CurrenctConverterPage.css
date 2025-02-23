@@ -1,4 +1,4 @@
-/* CurrenctConverterPage.css */
+
 
 .currency-converter-page {
   min-height: 100vh;
@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  /* A subtle gradient overlay on a background image */
+ 
   background: linear-gradient(135deg, rgba(78,137,174,0.2), rgba(237,102,99,0.2)),
               url('https://source.unsplash.com/1600x900/?money,finance') center/cover no-repeat;
   animation: fadeIn 1s ease forwards;

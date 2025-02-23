@@ -1,6 +1,4 @@
-/* ExpenseList.css */
 
-/* Container for the expense list styled as a card */
 .expense-list-container {
   width: 100%;
   max-width: 800px;
@@ -26,7 +24,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Styling the expense list items */
+
 .expense-list {
   list-style: none;
   padding: 0;
@@ -51,7 +49,7 @@
   transform: translateX(5px);
 }
 
-/* Buttons in the expense list */
+
 .expense-actions button {
   margin-left: 0.5rem;
   padding: 0.5rem 1rem;

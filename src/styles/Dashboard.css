@@ -1,6 +1,4 @@
-/* Dashboard.css */
 
-/* Dashboard container uses a full-screen background with a subtle gradient overlay */
 .dashboard-container {
   min-height: 100vh;
   display: flex;
@@ -31,7 +29,7 @@
   margin-bottom: 2rem;
 }
 
-/* Fade in animation */
+
 @keyframes fadeIn {
   from {
     opacity: 0;

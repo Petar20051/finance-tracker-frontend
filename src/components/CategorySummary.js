@@ -10,8 +10,8 @@ const CategorySummary = () => {
   useEffect(() => {
     const fetchSummary = async () => {
       const startDate = new Date();
-      startDate.setDate(1); // first day of the current month
-      const endDate = new Date(); // current date
+      startDate.setDate(1); 
+      const endDate = new Date(); 
 
       try {
         const data = await getCategorySummary(
@@ -45,7 +45,7 @@ const CategorySummary = () => {
       {summary && summary.length > 0 ? (
         <ul>
           {summary.map((item, index) => {
-            // Support both camelCase and PascalCase in case of naming differences
+            
             const category = item.category || item.Category;
             const totalAmount = item.totalAmount || item.TotalAmount;
             return (

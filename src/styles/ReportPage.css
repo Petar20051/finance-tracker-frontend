@@ -1,6 +1,4 @@
-/* ReportPage.css */
 
-/* Main container with full-screen background, gradient overlay, and smooth fade-in */
 .reports-page {
   min-height: 100vh;
   padding: 3rem 1rem;
@@ -13,7 +11,7 @@
   color: var(--text-color);
 }
 
-/* FadeIn Animation */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -25,7 +23,7 @@
   }
 }
 
-/* Page Title */
+
 .reports-title {
   font-size: 3rem;
   text-align: center;
@@ -33,7 +31,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* Page Description */
+
 .page-description {
   font-size: 1.2rem;
   text-align: center;
@@ -42,7 +40,7 @@
   color: var(--text-color);
 }
 
-/* Section containers styled as cards */
+
 .category-summary-section,
 .monthly-trends-section,
 .expense-trends-chart-section {
@@ -64,7 +62,7 @@
   }
 }
 
-/* Section Description Text */
+
 .section-description {
   font-size: 1rem;
   text-align: center;
@@ -72,7 +70,7 @@
   color: var(--text-color);
 }
 
-/* Error Message Styling */
+
 .error-message {
   text-align: center;
   font-size: 1.1rem;

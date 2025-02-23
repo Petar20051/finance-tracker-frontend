@@ -1,14 +1,14 @@
-/* Global Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Import Google Font */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Root Variables */
+
 :root {
   --primary-color: #4e89ae;
   --secondary-color: #43658b;
@@ -19,7 +19,7 @@
   --container-max-width: 1200px;
 }
 
-/* Base Styles */
+
 html, body {
   height: 100%;
   font-family: 'Poppins', sans-serif;
@@ -29,7 +29,7 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* Full-Screen Animated Background */
+
 body::before {
   content: "";
   position: fixed;
@@ -50,7 +50,7 @@ body::before {
   100% { background-position: 0% 50%; }
 }
 
-/* Global Container */
+
 .container {
   width: 90%;
   max-width: var(--container-max-width);
@@ -58,7 +58,7 @@ body::before {
   padding: 2rem 1rem;
 }
 
-/* Typography */
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin-bottom: 1rem;
@@ -69,7 +69,7 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Global Links */
+
 a {
   text-decoration: none;
   color: var(--primary-color);
@@ -79,7 +79,7 @@ a:hover {
   color: var(--accent-color);
 }
 
-/* Utility Classes */
+
 .text-center {
   text-align: center;
 }
@@ -91,7 +91,7 @@ a:hover {
 .pt-1 { padding-top: 1rem; }
 .pb-1 { padding-bottom: 1rem; }
 
-/* Buttons */
+
 button {
   cursor: pointer;
   padding: 0.75rem 1.5rem;
@@ -107,7 +107,7 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* Form Elements */
+
 input, textarea, select {
   width: 100%;
   padding: 0.75rem;
@@ -122,7 +122,7 @@ input:focus, textarea:focus, select:focus {
   outline: none;
 }
 
-/* Global Animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -137,7 +137,7 @@ input:focus, textarea:focus, select:focus {
   animation: fadeIn 0.6s ease forwards;
 }
 
-/* Responsive Utilities */
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;

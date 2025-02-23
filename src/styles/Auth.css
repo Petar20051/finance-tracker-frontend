@@ -1,7 +1,4 @@
-/* Auth.css */
 
-/* Apply a full-screen background to the auth pages.
-   You can add the "auth-body" class to the body tag in your index.html or a parent component. */
    body.auth-body {
     background: url('https://source.unsplash.com/1600x900/?abstract,finance') center/cover no-repeat;
     background-attachment: fixed;
@@ -13,7 +10,7 @@
     padding: 0;
   }
   
-  /* Main container for the authentication forms */
+ 
   .auth-container {
     width: 100%;
     max-width: 400px;
@@ -26,7 +23,7 @@
     animation: scaleIn 0.8s ease-out forwards;
   }
   
-  /* Scale in animation for a smooth entrance */
+ 
   @keyframes scaleIn {
     from {
       opacity: 0;
@@ -38,7 +35,7 @@
     }
   }
   
-  /* Headings */
+ 
   .auth-container h2 {
     font-size: 2rem;
     text-align: center;
@@ -46,7 +43,7 @@
     margin-bottom: 0.5rem;
   }
   
-  /* Description text */
+  
   .auth-description {
     font-size: 1rem;
     text-align: center;
@@ -54,7 +51,7 @@
     margin-bottom: 1.5rem;
   }
   
-  /* Form styling */
+  
   .auth-container form {
     display: flex;
     flex-direction: column;
@@ -74,7 +71,7 @@
     outline: none;
   }
   
-  /* Button styling */
+  
   .auth-container button {
     padding: 0.75rem 1.5rem;
     background-color: var(--primary-color);
@@ -91,7 +88,7 @@
     transform: translateY(-3px);
   }
   
-  /* Error messages */
+ 
   .error-message {
     color: var(--accent-color);
     text-align: center;
@@ -99,7 +96,7 @@
     font-size: 1rem;
   }
   
-  /* Extra info (e.g., register link) */
+ 
   .auth-extra {
     font-size: 0.9rem;
     text-align: center;

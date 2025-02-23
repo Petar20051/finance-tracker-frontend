@@ -17,7 +17,7 @@ const Login = () => {
         setError("Login failed: No token received.");
         return;
       }
-      // Update authentication context and save user data
+      
       login(token);
       localStorage.setItem("userId", userId);
       console.log("Token saved to localStorage:", token);

@@ -1,6 +1,4 @@
-/* GoalsPage.css */
 
-/* Main container with full-screen background and gradient overlay */
 .goals-page {
   min-height: 100vh;
   padding: 2rem;
@@ -14,7 +12,7 @@
   color: var(--text-color);
 }
 
-/* Fade in animation for the page */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -26,7 +24,7 @@
   }
 }
 
-/* Title and page description styling */
+
 .goals-title {
   font-size: 3rem;
   color: var(--primary-color);
@@ -41,7 +39,7 @@
   margin-bottom: 2rem;
 }
 
-/* Error Alert */
+
 .error-alert {
   background: rgba(237, 102, 99, 0.2);
   color: var(--accent-color);
@@ -52,7 +50,7 @@
   font-size: 1.1rem;
 }
 
-/* Section Containers styled as card-like panels */
+
 .goals-section,
 .goal-form-section,
 .goal-suggestions-section {
@@ -66,7 +64,7 @@
   animation: slideInUp 0.8s ease forwards;
 }
 
-/* Slide in animation for sections */
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -78,7 +76,7 @@
   }
 }
 
-/* Section Headings */
+
 .section-title {
   font-size: 2rem;
   color: var(--primary-color);
@@ -92,7 +90,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Goal List Styling */
+
 .goal-list {
   list-style: none;
   padding: 0;
@@ -136,7 +134,7 @@
   color: #fff;
 }
 
-/* Goal Form Styling */
+
 .goal-form {
   display: flex;
   flex-direction: column;
@@ -188,7 +186,7 @@
   color: #fff;
 }
 
-/* Goal Suggestions Styling */
+
 .goal-suggestions {
   list-style: none;
   padding: 0;
@@ -214,7 +212,7 @@
   color: var(--text-color);
 }
 
-/* Responsive Adjustments */
+
 @media (max-width: 768px) {
   .goals-page {
     padding: 1rem;
