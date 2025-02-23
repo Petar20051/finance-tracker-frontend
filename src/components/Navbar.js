@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import '../styles/Navbar.css';
-import { AuthContext } from '../context/AuthContext';
+import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
   const location = useLocation();
   const { user, logout } = useContext(AuthContext);
 
-  const getActiveClass = (path) => (location.pathname === path ? 'active' : '');
+  
+  if (location.pathname === "/dashboard") {
+    return null;
+  }
+
+  const getActiveClass = (path) => (location.pathname === path ? "active" : "");
 
   return (
     <nav className="navbar">
@@ -17,42 +22,42 @@ const Navbar = () => {
           {user ? (
             <>
               <li className="navbar-item">
-                <Link to="/dashboard" className={getActiveClass('/dashboard')}>
+                <Link to="/dashboard" className={getActiveClass("/dashboard")}>
                   Dashboard
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/budgets" className={getActiveClass('/budgets')}>
+                <Link to="/budgets" className={getActiveClass("/budgets")}>
                   Budgets
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/goals" className={getActiveClass('/goals')}>
+                <Link to="/goals" className={getActiveClass("/goals")}>
                   Goals
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/manage-expenses" className={getActiveClass('/manage-expenses')}>
+                <Link to="/manage-expenses" className={getActiveClass("/manage-expenses")}>
                   Manage Expenses
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/reports" className={getActiveClass('/reports')}>
+                <Link to="/reports" className={getActiveClass("/reports")}>
                   Reports
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/ai-predictions" className={getActiveClass('/ai-predictions')}>
+                <Link to="/ai-predictions" className={getActiveClass("/ai-predictions")}>
                   AI Predictions
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/currency-converter" className={getActiveClass('/currency-converter')}>
+                <Link to="/currency-converter" className={getActiveClass("/currency-converter")}>
                   Currency Converter
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/update" className={getActiveClass('/update')}>
+                <Link to="/update" className={getActiveClass("/update")}>
                   Update Profile
                 </Link>
               </li>
@@ -65,12 +70,12 @@ const Navbar = () => {
           ) : (
             <>
               <li className="navbar-item">
-                <Link to="/login" className={getActiveClass('/login')}>
+                <Link to="/login" className={getActiveClass("/login")}>
                   Login
                 </Link>
               </li>
               <li className="navbar-item">
-                <Link to="/register" className={getActiveClass('/register')}>
+                <Link to="/register" className={getActiveClass("/register")}>
                   Register
                 </Link>
               </li>
