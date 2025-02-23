@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/AddExpense.css";
 
-
+// Utility to format date strings for the input
 const formatDate = (date) => {
   if (!date) return ""; 
   const d = new Date(date);
@@ -39,7 +39,6 @@ const AddExpenseForm = ({ onSubmit, editingExpense, cancelEditing }) => {
     }
   }, [editingExpense]);
   
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((prevState) => ({
@@ -50,19 +49,16 @@ const AddExpenseForm = ({ onSubmit, editingExpense, cancelEditing }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
     if (!formState.category || !formState.amount || !formState.date) {
       alert("Please fill in all required fields: Category, Amount, and Date.");
       return;
     }
-  
     
     const { id, ...payload } = formState;
     payload.amount = parseFloat(payload.amount);
-  
-    console.log("Submitting expense form:", payload);
+    
     onSubmit(payload);
-  
+    // Clear the form after submission
     setFormState({
       category: "",
       amount: "",
@@ -70,12 +66,15 @@ const AddExpenseForm = ({ onSubmit, editingExpense, cancelEditing }) => {
       date: "",
     });
   };
-  
-  
 
   return (
-    <form onSubmit={handleSubmit}>
-     
+    <form onSubmit={handleSubmit} className="expense-form">
+      <h2>{editingExpense ? "Edit Expense" : "Add New Expense"}</h2>
+      <p className="form-description">
+        {editingExpense
+          ? "Update the details of your expense and click 'Update Expense'."
+          : "Enter the details of your expense below."}
+      </p>
       <input
         type="text"
         name="category"
@@ -96,7 +95,7 @@ const AddExpenseForm = ({ onSubmit, editingExpense, cancelEditing }) => {
         name="description"
         value={formState.description}
         onChange={handleChange}
-        placeholder="Description"
+        placeholder="Description (optional)"
       />
       <input
         type="date"
@@ -109,7 +108,7 @@ const AddExpenseForm = ({ onSubmit, editingExpense, cancelEditing }) => {
         {editingExpense ? "Update Expense" : "Add Expense"}
       </button>
       {editingExpense && (
-        <button type="button" onClick={cancelEditing}>
+        <button type="button" onClick={cancelEditing} className="cancel-btn">
           Cancel
         </button>
       )}

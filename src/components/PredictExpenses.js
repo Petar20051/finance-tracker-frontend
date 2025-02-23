@@ -7,7 +7,7 @@ const PredictCategoryAndExpense = () => {
   const [predictedCategory, setPredictedCategory] = useState(null);
   const [predictedAmount, setPredictedAmount] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,17 +17,15 @@ const PredictCategoryAndExpense = () => {
     setLoading(true);
 
     try {
-      console.log("Submitting description:", description);
       const response = await predictCategoryAndExpense(description);
-  
+
       if (!response || !response.category || response.predictedAmount === undefined) {
         throw new Error("Invalid response from the API.");
       }
-  
+
       setPredictedCategory(response.category);
       setPredictedAmount(parseFloat(response.predictedAmount).toFixed(2));
     } catch (err) {
-      console.error("Error during prediction:", err.message || err);
       setError(err.message || "An unexpected error occurred.");
     } finally {
       setLoading(false);
@@ -35,36 +33,50 @@ const PredictCategoryAndExpense = () => {
   };
 
   return (
-    <div>
-      <h1>Predict Category and Expense</h1>
+    <div className="predict-category-expense">
+      <h1>Predict Your Expense</h1>
+      <p>
+        Use our AI-powered prediction tool to get insights into your spending habits. Simply describe an expense, and our system will suggest an appropriate category along with an estimated cost for the next month.
+      </p>
+      <ol>
+        <li>
+          <strong>Step 1:</strong> Enter a brief description of your expense (e.g., "Dinner at a restaurant" or "Monthly grocery shopping").
+        </li>
+        <li>
+          <strong>Step 2:</strong> Click the "Get Prediction" button.
+        </li>
+        <li>
+          <strong>Step 3:</strong> Review the suggested category and estimated cost.
+        </li>
+      </ol>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="description">Expense Description</label>
           <input
             id="description"
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Enter a description"
+            placeholder="Enter expense description..."
             required
           />
         </div>
         <button type="submit" disabled={loading}>
-          {loading ? "Predicting..." : "Predict"}
+          {loading ? "Predicting..." : "Get Prediction"}
         </button>
       </form>
-      {loading && <p>Loading prediction results...</p>}
+      {loading && <p>Processing your prediction...</p>}
       {predictedCategory && (
         <p>
-          Predicted Category: <strong>{predictedCategory}</strong>
+          <strong>Predicted Category:</strong> {predictedCategory}
         </p>
       )}
       {predictedAmount && (
         <p>
-          Expected Cost Next Month: <strong>${predictedAmount}</strong>
+          <strong>Estimated Expense Next Month:</strong> ${predictedAmount}
         </p>
       )}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error" style={{ color: "red" }}>{error}</p>}
     </div>
   );
 };

@@ -5,7 +5,6 @@ import ExpenseTrendsChart from "../components/ExpenseTrendsChart";
 import { getMonthlyTrends } from "../api/expense";
 import "../styles/ReportPage.css";
 
-
 const ReportsPage = () => {
   const [chartData, setChartData] = useState([]);
   const [error, setError] = useState("");
@@ -14,10 +13,10 @@ const ReportsPage = () => {
     const fetchMonthlyTrends = async () => {
       try {
         const data = await getMonthlyTrends();
-        console.log("Fetched Monthly Trends Data:", data); 
+        console.log("Fetched Monthly Trends Data:", data);
         setChartData(data);
       } catch (err) {
-        setError(err.message);
+        setError(err.message || "Failed to fetch monthly trends.");
         console.error("Error fetching monthly trends:", err);
       }
     };
@@ -27,21 +26,39 @@ const ReportsPage = () => {
 
   return (
     <div className="reports-page">
-      <h1 className="reports-title">Reports</h1>
+      <h1 className="reports-title">Your Financial Reports</h1>
+      <p className="page-description">
+        View a comprehensive overview of your spending habits through category summaries, monthly trends, and interactive charts.
+      </p>
       {error && <p className="error-message">{error}</p>}
-      <div className="category-summary-section">
+      
+      <section className="category-summary-section">
+        <h2>Category Summary</h2>
+        <p className="section-description">
+          A quick look at your spending across different categories.
+        </p>
         <CategorySummary />
-      </div>
-      <div className="monthly-trends-section">
+      </section>
+      
+      <section className="monthly-trends-section">
+        <h2>Monthly Trends</h2>
+        <p className="section-description">
+          Review your spending patterns month-by-month.
+        </p>
         <MonthlyTrends />
-      </div>
-      <div className="expense-trends-chart-section">
+      </section>
+      
+      <section className="expense-trends-chart-section">
+        <h2>Expense Trends Chart</h2>
+        <p className="section-description">
+          This chart shows how your expenses have evolved over time.
+        </p>
         {chartData.length > 0 ? (
           <ExpenseTrendsChart data={chartData} />
         ) : (
           <p className="no-data">No data available for the chart.</p>
         )}
-      </div>
+      </section>
     </div>
   );
 };

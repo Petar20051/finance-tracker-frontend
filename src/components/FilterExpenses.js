@@ -19,29 +19,41 @@ const FilterExpenses = ({ onFilter }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="date"
-        name="startDate"
-        placeholder="Start Date"
-        value={filters.startDate}
-        onChange={handleChange}
-      />
-      <input
-        type="date"
-        name="endDate"
-        placeholder="End Date"
-        value={filters.endDate}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="category"
-        placeholder="Category"
-        value={filters.category}
-        onChange={handleChange}
-      />
-      <button type="submit">Filter</button>
+    <form onSubmit={handleSubmit} className="filter-expenses-form">
+      <div className="form-group">
+        <label htmlFor="startDate">Start Date:</label>
+        <input
+          id="startDate"
+          type="date"
+          name="startDate"
+          value={filters.startDate}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="endDate">End Date:</label>
+        <input
+          id="endDate"
+          type="date"
+          name="endDate"
+          value={filters.endDate}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="category">Category:</label>
+        <input
+          id="category"
+          type="text"
+          name="category"
+          placeholder="Enter category..."
+          value={filters.category}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit" className="filter-button">
+        Filter
+      </button>
     </form>
   );
 };

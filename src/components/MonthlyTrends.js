@@ -18,23 +18,24 @@ const MonthlyTrends = () => {
     };
 
     fetchTrends();
-  }, []); 
+  }, []);
 
   if (error) {
     return <p className="error">{error}</p>;
   }
 
   return (
-    <div>
+    <div className="monthly-trends-container">
       <h2>Monthly Trends</h2>
+      <p className="trends-description">
+        This section displays your spending trends on a monthly basis.
+      </p>
       {trends.length > 0 ? (
-        <ul>
+        <ul className="trends-list">
           {trends.map((trend, index) => (
-            <li key={index}>
+            <li key={index} className="trend-item">
               {trend.month}:{" "}
-              {typeof trend.amount === "number"
-                ? trend.amount.toFixed(2)
-                : "No data"}
+              {typeof trend.amount === "number" ? trend.amount.toFixed(2) : "No data"}
             </li>
           ))}
         </ul>

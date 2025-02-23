@@ -1,13 +1,14 @@
 import React from 'react';
-import PredictExpenses from '../components/PredictExpenses';
+import PredictCategoryAndExpense from '../components/PredictExpenses';
 import "../styles/PredictPage.css";
 
-
-
 const AIPredictionsPage = () => (
-  <div>
+  <div className="ai-predictions-page">
     <h1>AI Predictions</h1>
-    <PredictExpenses />
+    <p>
+      Welcome to the AI Predictions tool. Here you can gain valuable insights into your future expenses. Our advanced algorithms analyze your expense description and predict a relevant category along with an estimated cost for the next month—helping you plan your budget more effectively.
+    </p>
+    <PredictCategoryAndExpense />
   </div>
 );
 

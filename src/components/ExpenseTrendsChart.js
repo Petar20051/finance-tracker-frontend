@@ -18,12 +18,19 @@ const ExpenseTrendsChart = ({ data }) => {
 
   return (
     <div className="chart-container">
-      <h3 className="text-center">Expense Trends Over Time</h3>
+      <h3 className="chart-title">Expense Trends Over Time</h3>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={data} margin={{ top: 20, right: 30, bottom: 20, left: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#d0d0d0" />
-          <XAxis dataKey="month" tick={{ fontSize: 12 }} label={{ value: "Month", position: "insideBottom", offset: -5 }} />
-          <YAxis tick={{ fontSize: 12 }} label={{ value: "Amount", angle: -90, position: "insideLeft", offset: -5 }} />
+          <XAxis
+            dataKey="month"
+            tick={{ fontSize: 12 }}
+            label={{ value: "Month", position: "insideBottom", offset: -5 }}
+          />
+          <YAxis
+            tick={{ fontSize: 12 }}
+            label={{ value: "Amount", angle: -90, position: "insideLeft", offset: -5 }}
+          />
           <Tooltip
             contentStyle={{ backgroundColor: "#f8f9fa", border: "1px solid #d0d0d0" }}
             itemStyle={{ fontSize: 14 }}

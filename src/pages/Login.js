@@ -7,32 +7,33 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { login } = useContext(AuthContext); // Use AuthContext's login function
+  const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Call your API login function
       const { token, userId } = await loginApi(email, password);
       if (!token) {
         setError("Login failed: No token received.");
         return;
       }
-      // Use the context's login function to update state and navigate
+      // Update authentication context and save user data
       login(token);
-      // Optionally store the userId as well
       localStorage.setItem("userId", userId);
       console.log("Token saved to localStorage:", token);
       console.log("UserId saved to localStorage:", userId);
     } catch (err) {
       console.error("Login error:", err.message);
-      setError("Login failed. Please check your credentials.");
+      setError("Login failed. Please check your credentials and try again.");
     }
   };
 
   return (
     <div className="auth-container">
-      <h2>Login</h2>
+      <h2>Welcome Back!</h2>
+      <p className="auth-description">
+        Please enter your email and password below to access your account.
+      </p>
       <form onSubmit={handleLogin}>
         <input
           type="email"
@@ -51,6 +52,9 @@ const Login = () => {
         <button type="submit">Login</button>
         {error && <p className="error-message">{error}</p>}
       </form>
+      <p className="auth-extra">
+        Don't have an account? <a href="/register">Register here</a>.
+      </p>
     </div>
   );
 };

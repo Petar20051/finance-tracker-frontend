@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { convertCurrency } from "../api/expense";
 import "../styles/CurrencyConverter.css";
 
-
 const CurrencyConverter = () => {
   const [conversion, setConversion] = useState({
     fromCurrency: "",
@@ -24,22 +23,23 @@ const CurrencyConverter = () => {
 
     try {
       const response = await convertCurrency(conversion);
-      console.log("API Response:", response);
-
       if (response?.convertedAmount !== undefined) {
         setResult(response.convertedAmount.toFixed(2));
       } else {
-        setError("Invalid response from the server.");
+        setError("Invalid response from the server. Please check your input and try again.");
       }
     } catch (err) {
+      setError("Failed to convert currency. Please try again later.");
       console.error("Error converting currency:", err);
-      setError("Failed to convert currency. Please try again.");
     }
   };
 
   return (
     <div className="currency-converter">
-      <h1 className="title">Currency Converter</h1>
+      <h2 className="converter-title">Convert Your Currency</h2>
+      <p className="converter-description">
+        Enter the details below to convert an amount from one currency to another.
+      </p>
       <form onSubmit={handleSubmit} className="converter-form">
         <div className="form-group">
           <label htmlFor="fromCurrency">From Currency:</label>

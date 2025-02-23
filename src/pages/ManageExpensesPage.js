@@ -9,19 +9,16 @@ import ExpenseList from "../components/ExpenseList";
 import AddExpenseForm from "../components/AddExpenseForm";
 import "../styles/ManageExpensesPage.css";
 
-
 const ManageExpensesPage = () => {
   const [expenses, setExpenses] = useState([]); 
   const [editingExpense, setEditingExpense] = useState(null); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
 
-  
   useEffect(() => {
     fetchExpenses();
   }, []);
 
- 
   const fetchExpenses = async () => {
     try {
       setLoading(true); 
@@ -35,18 +32,15 @@ const ManageExpensesPage = () => {
     }
   };
 
-  
   const handleAddOrUpdateExpense = async (expense) => {
     try {
       if (editingExpense && editingExpense.id) {
-        console.log("Updating expense:", { id: editingExpense.id, expense }); 
-
-       
+        // Updating an existing expense
         const expenseWithNumericId = { ...expense, id: editingExpense.id };
         await updateExpense(editingExpense.id, expenseWithNumericId);
         setEditingExpense(null); 
       } else {
-        console.log("Adding new expense:", expense); 
+        // Adding a new expense
         await addExpense(expense);
       }
       fetchExpenses(); 
@@ -56,7 +50,6 @@ const ManageExpensesPage = () => {
     }
   };
 
- 
   const handleDeleteExpense = async (id) => {
     try {
       if (!id || isNaN(Number(id))) {
@@ -70,38 +63,41 @@ const ManageExpensesPage = () => {
     }
   };
 
- 
   const startEditing = (expense) => {
-    console.log("Editing expense:", expense); 
     setEditingExpense(expense); 
   };
 
-  
   const cancelEditing = () => {
     setEditingExpense(null); 
   };
 
-  if (loading) {
-    return <p>Loading expenses...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>; 
-  }
-
   return (
     <div className="manage-expenses-page">
-      <h1>Manage Expenses</h1>
-      <AddExpenseForm
-        onSubmit={handleAddOrUpdateExpense}
-        editingExpense={editingExpense}
-        cancelEditing={cancelEditing}
-      />
-      <ExpenseList
-        expenses={expenses}
-        onDelete={handleDeleteExpense}
-        onUpdate={startEditing}
-      />
+      <h1>Manage Your Expenses</h1>
+      <p className="page-description">
+        Use the form below to add a new expense or update an existing one. Your expenses are listed below, and you can easily edit or delete any entry.
+      </p>
+      {error && <div className="error-alert">{error}</div>}
+      <section className="expense-form-section">
+        <AddExpenseForm
+          onSubmit={handleAddOrUpdateExpense}
+          editingExpense={editingExpense}
+          cancelEditing={cancelEditing}
+        />
+      </section>
+      <section className="expense-list-section">
+        {loading ? (
+          <p>Loading expenses...</p>
+        ) : expenses.length > 0 ? (
+          <ExpenseList
+            expenses={expenses}
+            onDelete={handleDeleteExpense}
+            onUpdate={startEditing}
+          />
+        ) : (
+          <p className="no-expenses">No expenses available. Please add an expense above.</p>
+        )}
+      </section>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/ExpenseList.css";
 
-
 const ExpenseList = ({ expenses, onDelete, onUpdate }) => {
   if (!Array.isArray(expenses) || expenses.length === 0) {
     return <p className="no-expenses">No expenses available.</p>;
@@ -9,7 +8,10 @@ const ExpenseList = ({ expenses, onDelete, onUpdate }) => {
 
   return (
     <div className="expense-list-container">
-      <h2 className="expense-list-title">Expense List</h2>
+      <h2 className="expense-list-title">Your Expenses</h2>
+      <p className="list-description">
+        Review your expenses below. Use the "Update" button to edit an expense or "Delete" to remove it.
+      </p>
       <ul className="expense-list">
         {expenses.map((expense) => (
           <li key={expense.id} className="expense-item">

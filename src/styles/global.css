@@ -1,95 +1,155 @@
+/* Global Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Root Variables */
+:root {
+  --primary-color: #4e89ae;
+  --secondary-color: #43658b;
+  --accent-color: #ed6663;
+  --text-color: #333;
+  --background-color: #f5f5f5;
+  --transition-speed: 0.3s;
+  --container-max-width: 1200px;
+}
+
+/* Base Styles */
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Full-Screen Animated Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--background-color));
+  background-size: 800% 800%;
+  z-index: -1;
+  opacity: 0.2;
+  animation: gradientAnimation 20s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Global Container */
+.container {
+  width: 90%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Global Links */
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color var(--transition-speed);
+}
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+.pt-1 { padding-top: 1rem; }
+.pb-1 { padding-bottom: 1rem; }
+
+/* Buttons */
+button {
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1rem;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* Form Elements */
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(78, 137, 174, 0.3);
+  outline: none;
+}
+
+/* Global Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  :root {
-    --primary-color: #4e89ae;
-    --secondary-color: #43658b;
-    --accent-color: #ed6663;
-    --text-color: #333;
-    --background-color: #f5f5f5;
-    --transition-speed: 0.3s;
-  }
-  
-  body {
-    font-family: 'Open Sans', sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  
-  a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: color var(--transition-speed);
-  }
-  
-  a:hover {
-    color: var(--accent-color);
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    background-color: var(--primary-color);
-    color: #fff;
-    cursor: pointer;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-  }
-  
-  button:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-2px);
-  }
-  
-  button:active {
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
-  
-  input,
-  select,
-  textarea {
-    font-family: inherit;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0.5rem;
-    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
   }
-  
-  input:focus,
-  select:focus,
-  textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(78, 137, 174, 0.4);
-    outline: none;
+  h1 {
+    font-size: 2rem;
   }
-  
-  ::-webkit-scrollbar {
-    width: 8px;
+  h2 {
+    font-size: 1.75rem;
   }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 4px;
+  button {
+    width: 100%;
+    padding: 1rem;
   }
-  
-  ::-webkit-scrollbar-track {
-    background-color: #ddd;
-  }
-  
+}
