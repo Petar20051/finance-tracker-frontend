@@ -1,56 +1,132 @@
-.auth-container {
-    width: 400px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 0.6s ease-in-out forwards;
-    transform: translateY(20px);
-    opacity: 0;
+/* Auth.css */
+
+/* Apply a full-screen background to the auth pages.
+   You can add the "auth-body" class to the body tag in your index.html or a parent component. */
+   body.auth-body {
+    background: url('https://source.unsplash.com/1600x900/?abstract,finance') center/cover no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
   }
   
-  @keyframes fadeInUp {
+  /* Main container for the authentication forms */
+  .auth-container {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    margin: 0 auto;
+    margin-top: 28px;
+    animation: scaleIn 0.8s ease-out forwards;
+  }
+  
+  /* Scale in animation for a smooth entrance */
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
     to {
-      transform: translateY(0);
       opacity: 1;
+      transform: scale(1);
     }
   }
   
+  /* Headings */
   .auth-container h2 {
-    margin-bottom: 1.5rem;
-    text-align: center;
     font-size: 2rem;
+    text-align: center;
     color: var(--primary-color);
+    margin-bottom: 0.5rem;
   }
   
+  /* Description text */
+  .auth-description {
+    font-size: 1rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form styling */
   .auth-container form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
   }
   
   .auth-container input {
-    margin-bottom: 1rem;
+    padding: 0.75rem;
     border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
   
   .auth-container input:focus {
     border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(78, 137, 174, 0.4);
+    outline: none;
   }
   
+  /* Button styling */
   .auth-container button {
-    width: 50%;
-    margin: 1rem auto 0 auto;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
     font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
   }
   
   .auth-container button:hover {
+    background-color: var(--accent-color);
     transform: translateY(-3px);
   }
   
-  .auth-container .error-message {
-    margin-top: 1rem;
+  /* Error messages */
+  .error-message {
     color: var(--accent-color);
     text-align: center;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Extra info (e.g., register link) */
+  .auth-extra {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .auth-extra a {
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .auth-extra a:hover {
+    color: var(--accent-color);
+  }
+  
+  
+  @media (max-width: 480px) {
+    .auth-container {
+      padding: 1.5rem;
+      max-width: 90%;
+    }
+    .auth-container h2 {
+      font-size: 1.75rem;
+    }
+    .auth-description {
+      font-size: 0.9rem;
+    }
   }
   

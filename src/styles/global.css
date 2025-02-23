@@ -137,7 +137,7 @@ input:focus, textarea:focus, select:focus {
   animation: fadeIn 0.6s ease forwards;
 }
 
-
+/* Responsive Utilities */
 @media (max-width: 768px) {
   .container {
     padding: 1rem;

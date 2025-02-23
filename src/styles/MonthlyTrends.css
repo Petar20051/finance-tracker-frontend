@@ -1,81 +1,61 @@
+/* MonthlyTrends.css */
+
 .monthly-trends-container {
-    max-width: 600px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 0.6s ease-out forwards;
-    transform: translateY(20px);
+  background: rgba(255, 255, 255, 0.97);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  animation: slideInUp 0.8s ease forwards;
+}
+
+.monthly-trends-container h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.trends-description {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.trends-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trend-item {
+  background: #f9f9f9;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border-left: 5px solid var(--primary-color);
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.trend-item:hover {
+  background: #e9ecef;
+}
+
+.error {
+  text-align: center;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+@keyframes slideInUp {
+  from {
     opacity: 0;
+    transform: translateY(30px);
   }
-  
-  @keyframes fadeInUp {
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .monthly-trends-container h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-  }
-  
-  .monthly-trends-container ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .monthly-trends-container li {
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    border-left: 5px solid var(--primary-color);
-    background: #f9f9f9;
-    border-radius: 6px;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  
-  .monthly-trends-container li:hover {
-    background: #fff;
-    transform: translateX(5px);
-  }
-  
-  .monthly-trends-container p {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-color);
-    animation: fadeIn 0.5s ease-out forwards;
-  }
-  
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .error {
-    max-width: 600px;
-    margin: 3rem auto;
-    padding: 1rem;
-    background: #fdecea;
-    border-left: 5px solid var(--accent-color);
-    color: var(--accent-color);
-    text-align: center;
-    animation: shake 0.5s ease;
-  }
-  
-  @keyframes shake {
-    0%, 100% {
-      transform: translateX(0);
-    }
-    20%, 60% {
-      transform: translateX(-5px);
-    }
-    40%, 80% {
-      transform: translateX(5px);
-    }
-  }
-  
+}

@@ -1,93 +1,96 @@
+/* Predict.css */
+
 .predict-category-expense {
-    max-width: 600px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeInScale 0.6s ease-out forwards;
-    transform: scale(0.9);
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInScale 0.8s ease-out forwards;
+  transform: scale(0.95);
+  margin: 2rem 0;
+}
+
+@keyframes fadeInScale {
+  from {
     opacity: 0;
+    transform: scale(0.9);
   }
-  
-  @keyframes fadeInScale {
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .predict-category-expense h1 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .predict-category-expense form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .predict-category-expense form div {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .predict-category-expense label {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: var(--secondary-color);
-  }
-  
-  .predict-category-expense input {
-    padding: 0.75rem;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .predict-category-expense input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 10px rgba(78, 137, 174, 0.3);
-    outline: none;
-  }
-  
-  .predict-category-expense button {
-    padding: 0.75rem;
-    border: none;
-    border-radius: 8px;
-    background: var(--primary-color);
-    color: #fff;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  
-  .predict-category-expense button:hover {
-    background: var(--accent-color);
-    transform: translateY(-3px);
-  }
-  
-  .predict-category-expense p {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-color);
-    margin-top: 1rem;
-    animation: fadeIn 0.5s ease forwards;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .predict-category-expense p strong {
-    color: var(--primary-color);
-  }
-  
+}
+
+.predict-category-expense h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.predict-category-expense p {
+  font-size: 1rem;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.predict-category-expense ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.predict-category-expense ol li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.predict-category-expense form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.predict-category-expense form label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+
+.predict-category-expense form input {
+  padding: 0.75rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.predict-category-expense form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(78, 137, 174, 0.3);
+  outline: none;
+}
+
+.predict-category-expense form button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.predict-category-expense form button:hover {
+  background: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.predict-category-expense .error {
+  color: var(--accent-color);
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}

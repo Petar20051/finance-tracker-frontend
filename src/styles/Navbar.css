@@ -1,74 +1,73 @@
+/* Navbar.css */
+
 .navbar {
-    background: var(--primary-color);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    animation: slideDown 0.5s ease forwards;
+  background: var(--primary-color);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.5s ease forwards;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar-logo {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar-item a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.navbar-item a.active,
+.navbar-item a:hover {
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.logout-btn {
+  background: var(--accent-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
   }
-  .navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  .navbar-logo {
-    color: #fff;
-    font-size: 2rem;
-    font-weight: bold;
-    animation: fadeIn 1s ease forwards;
-  }
-  .navbar-links {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-  }
-  .navbar-item a {
-    color: #fff;
-    font-size: 1rem;
-    text-transform: uppercase;
-    position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  .navbar-item a:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--accent-color);
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-  }
-  .navbar-item a:hover:before,
-  .navbar-item a.active:before {
-    visibility: visible;
-    transform: scaleX(1);
-  }
-  .navbar-item a:hover {
-    color: var(--accent-color);
-    transform: scale(1.05);
-  }
-  @keyframes slideDown {
-    from {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-   
+}

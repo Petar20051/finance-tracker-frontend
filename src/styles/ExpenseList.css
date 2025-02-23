@@ -1,99 +1,77 @@
+/* ExpenseList.css */
+
+/* Container for the expense list styled as a card */
 .expense-list-container {
-    max-width: 800px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.6s ease forwards;
-  }
-  
-  .expense-list-title {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-  }
-  
-  .expense-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .expense-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f9f9f9;
-    border-left: 5px solid var(--primary-color);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: slideIn 0.5s ease forwards;
-  }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateX(-20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  .expense-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .expense-details {
-    font-size: 1rem;
-    color: var(--text-color);
-  }
-  
-  .expense-actions {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .btn {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  
-  .btn-update {
-    background: var(--primary-color);
-    color: #fff;
-  }
-  
-  .btn-update:hover {
-    background: var(--accent-color);
-    transform: translateY(-2px);
-  }
-  
-  .btn-delete {
-    background: var(--secondary-color);
-    color: #fff;
-  }
-  
-  .btn-delete:hover {
-    background: var(--accent-color);
-    transform: translateY(-2px);
-  }
-  
-  .no-expenses {
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--text-color);
-    margin: 2rem 0;
-    animation: fadeIn 0.5s ease forwards;
-  }
-  
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255,255,255,0.95);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: slideInUp 0.8s ease forwards;
+  margin: 0 auto;
+}
+
+.expense-list-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.list-description {
+  font-size: 1rem;
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Styling the expense list items */
+.expense-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-item {
+  background: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid var(--primary-color);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.expense-item:hover {
+  background: #f8f9fa;
+  transform: translateX(5px);
+}
+
+/* Buttons in the expense list */
+.expense-actions button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-update {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-delete {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.btn-update:hover,
+.btn-delete:hover {
+  transform: translateY(-2px);
+}

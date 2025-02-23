@@ -1,95 +1,119 @@
+/* UpdateProfile.css */
+
+/* Main container: a centered card with smooth entrance animation */
 .update-profile-container {
-    max-width: 500px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 0.6s ease forwards;
-    transform: translateY(20px);
+  width: 100%;
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease-out forwards;
+  color: var(--text-color);
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
     opacity: 0;
+    transform: translateY(30px);
   }
-  
-  @keyframes fadeInUp {
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+/* Heading styles */
+.update-profile-container h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Profile description */
+.profile-description {
+  font-size: 1rem;
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+/* Form group container */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Label styling */
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Input styling */
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input focus state */
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(78, 137, 174, 0.3);
+  outline: none;
+}
+
+/* Update button styling */
+.update-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
+}
+
+.update-btn:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Error and success messages */
+.error {
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.success {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .update-profile-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
   .update-profile-container h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
     font-size: 2rem;
   }
-  
-  .update-profile-container form {
-    display: flex;
-    flex-direction: column;
+  .profile-description {
+    font-size: 0.9rem;
   }
-  
-  .update-profile-container form > div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
-  
-  .update-profile-container label {
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-  }
-  
-  .update-profile-container input {
-    padding: 0.75rem;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .update-profile-container input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(78, 137, 174, 0.4);
-    outline: none;
-  }
-  
-  .update-profile-container button {
-    align-self: center;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    background: var(--primary-color);
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  
-  .update-profile-container button:hover {
-    background: var(--accent-color);
-    transform: translateY(-3px);
-  }
-  
-  .error {
-    color: var(--accent-color);
-    text-align: center;
-    margin-bottom: 1rem;
-    animation: shake 0.3s ease;
-  }
-  
-  @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
-  }
-  
-  .success {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 1rem;
-    animation: fadeIn 0.5s ease;
-  }
-  
+}

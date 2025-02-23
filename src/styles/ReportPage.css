@@ -1,63 +1,81 @@
-/* ReportsPage.css */
+/* ReportPage.css */
+
+/* Main container with full-screen background, gradient overlay, and smooth fade-in */
 .reports-page {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.6s ease-out forwards;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, rgba(78,137,174,0.15), rgba(237,102,99,0.15)),
+              url('https://source.unsplash.com/1600x900/?finance,report') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 1s ease forwards;
+  color: var(--text-color);
+}
+
+/* FadeIn Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .reports-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+}
+
+/* Page Title */
+.reports-title {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Page Description */
+.page-description {
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: var(--text-color);
+}
+
+/* Section containers styled as cards */
+.category-summary-section,
+.monthly-trends-section,
+.expense-trends-chart-section {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: slideInUp 0.8s ease forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  .error-message {
-    color: var(--accent-color);
-    text-align: center;
-    margin-bottom: 1rem;
-    animation: shake 0.5s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
-  }
-  
-  .category-summary-section,
-  .monthly-trends-section,
-  .expense-trends-chart-section {
-    margin: 2rem 0;
-  }
-  
-  .expense-trends-chart-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-  }
-  
-  .no-data {
-    text-align: center;
-    font-size: 1.2rem;
-    color: var(--text-color);
-  }
-  
+}
+
+/* Section Description Text */
+.section-description {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/* Error Message Styling */
+.error-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
